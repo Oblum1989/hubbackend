@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Category.delete_all
+City.delete_all
+
+10.times do |i|
+  Category.create(name: "Category #{i}")
+end
+
+10.times do |i|
+  City.create(name: "City #{i}", active: true)
+end
+
