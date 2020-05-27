@@ -5,4 +5,14 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
+
+  namespace :api do
+    namespace :v1 do
+      # Category
+      get '/categories', to: 'categories#index'
+
+      # Shop
+      get '/shops', to: 'shops#index'
+    end
+  end
 end
