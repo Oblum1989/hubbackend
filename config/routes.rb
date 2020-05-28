@@ -11,8 +11,11 @@ Rails.application.routes.draw do
       # Category
       get '/categories', to: 'categories#index'
 
+      # City
+      get '/cities', to: 'cities#index'
+
       # Shop
-      get '/shops', to: 'shops#index'
+      resources :shops
     end
   end
 end

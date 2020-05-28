@@ -46,6 +46,6 @@ class Api::V1::ShopsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def shop_params
-      params.require(:shop).permit(:name, :active)
+      params.require(:shop).permit(:name, :address, :schedule, :delivery_time, :facebook_url, :instagram_url, :web_url, :conditions_terms, :description, :user, :city, payment_options: [], order_options: [])
     end
 end

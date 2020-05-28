@@ -1,5 +1,4 @@
 class Api::V1::CategoriesController < ApplicationController
-  # GET /categories
   def index
     @categories = Category.all
 
