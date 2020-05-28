@@ -5,4 +5,17 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
+
+  namespace :api do
+    namespace :v1 do
+      # Category
+      get '/categories', to: 'categories#index'
+
+      # City
+      get '/cities', to: 'cities#index'
+
+      # Shop
+      resources :shops
+    end
+  end
 end
