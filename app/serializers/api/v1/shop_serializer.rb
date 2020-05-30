@@ -1,5 +1,17 @@
 class Api::V1::ShopSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :schedule, :delivery_time, :facebook_url, :instagram_url, :web_url, :conditions_terms, :description, :user, :city, :payment_options, :order_options
+  attributes :id
+  attributes :name
+  attributes :address
+  attributes :schedule
+  attributes :delivery_time
+  attributes :facebook_url
+  attributes :instagram_url
+  attributes :web_url
+  attributes :conditions_terms
+  attributes :description
+  attributes :active
+  attributes :payment_options
+  attributes :order_options
 
   belongs_to :user
   belongs_to :city

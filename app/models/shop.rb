@@ -3,4 +3,7 @@ class Shop < ApplicationRecord
   belongs_to :user
   belongs_to :city
   has_and_belongs_to_many :categories
+
+  # Scopes
+  scope :published, -> { where(active: true) }
 end
