@@ -1,30 +1,25 @@
 class Api::V1::ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :update, :destroy]
 
-  # GET /shops
   def index
-    @shops = Shop.all
-
+    @shops = Shop.published.all
     render json: @shops
   end
 
-  # GET /shops/1
   def show
     render json: @shop
   end
 
-  # POST /shops
   def create
     @shop = Shop.new(shop_params)
-
+    @shop.user = current_user
     if @shop.save
-      render json: @shop, status: :created, location: @shop
+      render json: @shop, status: :created
     else
       render json: @shop.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /shops/1
   def update
     if @shop.update(shop_params)
       render json: @shop
@@ -33,19 +28,16 @@ class Api::V1::ShopsController < ApplicationController
     end
   end
 
-  # DELETE /shops/1
   def destroy
     @shop.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_shop
       @shop = Shop.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def shop_params
-      params.require(:shop).permit(:name, :address, :schedule, :delivery_time, :facebook_url, :instagram_url, :web_url, :conditions_terms, :description, :user, :city, payment_options: [], order_options: [])
+      params.require(:shop).permit(:name, :address, :schedule, :delivery_time, :facebook_url, :instagram_url, :web_url, :conditions_terms, :description, :user_id, :city_id, payment_options: [], order_options: [])
     end
 end

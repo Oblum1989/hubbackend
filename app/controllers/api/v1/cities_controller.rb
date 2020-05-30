@@ -1,7 +1,6 @@
 class Api::V1::CitiesController < ApplicationController
   def index
-    @cities = City.all
-
+    @cities = City.published.all
     render json: @cities
   end
 end
